@@ -33,7 +33,6 @@ class CustomerAdd extends React.Component{
       
       this.addCustomer()
          .then((response) =>{
-            console.log(response.data);
             this.props.stateRefresh();
          })
          
@@ -43,7 +42,8 @@ class CustomerAdd extends React.Component{
          birthday: '',
          gender: '',
          job: '',
-         fileName: ''
+         fileName: '',
+         open: false
       })
       }
 
@@ -117,6 +117,10 @@ class CustomerAdd extends React.Component{
                   <TextField label="성별" type="text" name="gender" value={this.state.gender} onChange={this.handleValueChange}/><br/>
                   <TextField label="직업" type="text" name="job" value={this.state.job} onChange={this.handleValueChange}/><br/>
                </DialogContent>
+               <DialogActions>
+                  <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
+                  <Button variant="contained" color="primary" onClick={this.handleClose}>닫기</Button>
+               </DialogActions>
             </Dialog>
          </div>
          /*<form onSubmit={this.handleFormSubmit}>
